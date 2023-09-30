@@ -16,21 +16,17 @@ pi = [0,1]                          #Actions (policy) and their probabilities
 pi_prob = [[0.5,0.5],[0.7,0.3],[0.9,0.1],[0.4,0.6],[0.2,0.8]]
 
 p = [3,4,5,6]                       #Transition states and their probabilities
-p_prob = [[[1,0,0,0],[1,0,0,0]],[[0.8,0.2,0,0],[0.6,0.4,0,0]],\
+p_prob = [[[1,0,0,0],[1,0,0,0]],[[0.8,0.2,0,0],[0.6,0.4,0,0]], \
           [[0.9,0.1,0,0],[0,1,0,0]],[[0,0,1,0],[0,0,0.3,0.7]],[[0,0,0.3,0.7],[0,0,0,1]]]
 
 
 R = [[7,10],[-3,5],[4,-6],[9,-1],[-8,2]] #Rewards for different (state, action) pairs
 
-gamma = 0.99                        #Discount
-
+gamma = 0.9                        #Discount
 iterations = 150000
 
-
 J = [0]*iterations                  #List of discounted return of each episode
-
 J_hat: list[int] = [0]*(iterations+1) #List of average discounted return till episode i
-
 
 def runEpisode(pi_prob, gamma):      #Returns the discounted return
     J_i = 0
@@ -48,7 +44,6 @@ for i in range(iterations):
     J[i] = runEpisode(pi_prob,gamma)
     #print("reward for episode",i,":", J)
     J_hat[i+1] = J_hat[i] + (J[i]-J_hat[i])/(i+1)
-
 
 J_hat = J_hat[1:]
 
@@ -69,13 +64,3 @@ plt.ylabel('$\hat J(\pi)$')
 plt.show()
 
 print("Average discounted return: ",J_hat[-1], "variance=",var)
-
-
-
-
-
-
-
-
-
-
