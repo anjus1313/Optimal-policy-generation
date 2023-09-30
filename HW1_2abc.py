@@ -25,7 +25,7 @@ R = [[7,10],[-3,5],[4,-6],[9,-1],[-8,2]] #Rewards for different (state, action) 
 gamma = 0.9                        #Discount
 iterations = 150000
 
-J = [0]*iterations                  #List of discounted return of each episode
+J = [0]*iterations                    #List of discounted return of each episode
 J_hat: list[int] = [0]*(iterations+1) #List of average discounted return till episode i
 
 def runEpisode(pi_prob, gamma):      #Returns the discounted return
