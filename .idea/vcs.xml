@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/RL_Project/Pending-Cartpole/gym-maze" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/TD-learning_SARSA_Q-learning/RL0" vcs="Git" />
+  </component>
+</project>
